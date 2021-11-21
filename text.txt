@@ -1,0 +1,42 @@
+what HTML would be useful for the game board itself?
+    - table for game board
+
+how could you represent a played-piece in the HTML board?
+    - colored game piece circles in the table
+
+in the JavaScript, what would be a good structure for the in-memory game board?
+    - an array of arrays to represent the html table
+
+what might the flow of the game be?
+    - empty html table x rows, y columns
+    - empty array of y arrays with x nulls
+    - event listener on each colum to add game piece element to html table and update empty array
+    - functions to determine where in column and array each piece will go
+    - place piece and player represented number in array
+    - function to determine when game is won 
+
+Then, write down some functions names/descriptions that would be useful for this game.
+    - function to create html table
+    - create js empty array
+    - event listener for each column to determine which column is being played by which player
+    - find place for piece to determine which row is available in selected column
+    - function to place piece in html table
+    - function to place played piece in array
+    - function to determine if there's a win that's run whenever a piece has been placed
+
+
+
+QUESTIONS:
+
+- checkForWin function:
+    - can/ does this function use y, x variables from handleCardClick()??
+
+    - _win() is checking to make sure four coordinates contained within each of four possible wins are all on game board and belong to same player...
+        *** how does it do that using an arraY [y, x] as value instead of single value? 
+        
+        is it only checking first y, x or each array within winning array to make sure it is on board? 
+        ***************
+
+    - see if there are four player pieces in a winning position once piece is placed
+
+    - in _win(): cells.every([y, x]) --> is the array [y, x] treated a single value? not the index? how is an array treated as the value in an .every method?
