@@ -11,6 +11,7 @@
 
 div.piece {
   bottom: 1px;
+  animation: 1s bounce .7s ease-in;
 }
 
 .player1 {
@@ -22,7 +23,7 @@ div.piece {
   border-radius: 50%;
   background-color: red;
   bottom: 500px;
-  transition: bottom .7s;
+  transition: ease-in bottom .7s;
 }
 
 .player2 {
@@ -34,7 +35,8 @@ div.piece {
   border-radius: 50%;
   background-color: blue;
   bottom: 500px;
-  transition: bottom .7s;
+  transition: ease-in bottom .7s;
+  animation: bounce .4s;
 }
 
 /* TODO: make pieces red/blue,  depending on player 1/2 piece */
@@ -47,4 +49,39 @@ div.piece {
 
 #column-top td:hover {
   background-color: gold;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateY(0px);
+  }
+
+  20% {
+    transform: translateY(-45px);
+  }
+
+  40% {
+    transform: translateY(-25px);
+  }
+
+  65% {
+    transform: translateY(-12px);
+  }
+
+  82% {
+    transform: translateY(-6px);
+  }
+
+  93% {
+    transform: translateY(-4px);
+  }
+  
+  55%, 75%, 87% {
+    transform: translateY(0px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+
 }
