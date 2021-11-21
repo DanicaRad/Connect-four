@@ -1,12 +1,72 @@
 /* game board table */
 
+body {
+  background-color: #50adff;
+}
+
+#game {
+  width: 100%;;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 60px;
+}
+
+#board {
+  border-collapse: collapse;
+}
+
 #board td {
   position: relative;
   width: 50px;
   height: 50px;
-  border: solid 1px #666;
+  border: solid 5px yellow;
 }
 
+#column-top td {
+  border: dotted 3px lightyellow;
+  border-collapse: separate;
+}
+
+#column-top td:hover {
+  background-color: lightyellow;
+}
+
+.heading {
+  display: flex;
+  font-family: poppins;
+  font-size: 50px;
+  font-weight: 700px;
+  margin: 30px;
+  justify-content: center;
+}
+
+.connect {
+  color: white;
+  background-color: black;
+  border: 10px double white;
+  border-radius: 30px 0px 0px 30px;
+  border-right: 6px solid black;
+  padding: 3px 0px 3px 7px;
+  position: relative;
+  transform: translateX(-49px);
+  margin-top: 10px;
+  z-index: 1;
+}
+
+.four {
+  font-size: 90px;
+  font-weight: 900;
+  color: red;
+  -webkit-text-stroke: 5px white;
+  background-color: black;
+  padding-right: 10px;
+  border: 10px double white;
+  border-radius: 30px;
+  position: absolute;
+  transform: translateX(123px);
+  margin-top: 10px;
+  top: 2.5px;
+}
 /* pieces are div within game table cells: draw as colored circles */
 
 div.piece {
@@ -22,7 +82,7 @@ div.piece {
   height: 80%;
   border-radius: 50%;
   background-color: red;
-  bottom: 500px;
+  bottom: 400px;
   transition: ease-in bottom .7s;
 }
 
@@ -34,21 +94,8 @@ div.piece {
   height: 80%;
   border-radius: 50%;
   background-color: blue;
-  bottom: 500px;
+  bottom: 400px;
   transition: ease-in bottom .7s;
-  animation: bounce .4s;
-}
-
-/* TODO: make pieces red/blue,  depending on player 1/2 piece */
-
-/* column-top is table row of clickable areas for each column */
-
-#column-top td {
-  border: dashed 1px lightgray;
-}
-
-#column-top td:hover {
-  background-color: gold;
 }
 
 @keyframes bounce {
