@@ -83,17 +83,26 @@ function placeInTable(y, x) {
 
 /** endGame: announce game end */
 
+
+
 function endGame(msg) {
-  alert(msg);
-  location.reload();
+    alert(msg);
+    location.reload();
   // TODO: pop up alert message
 }
 
 /** handleClick: handle click of column top to play piece */
 
+// if (checkForWin()) {
+//   let row = document.querySelectorAll("#column-top");
+//   row.removeEventListener("click", handleClick);
+// }
+
 function handleClick(evt) {
+
   // get x from ID of clicked cell
-  let x = +evt.target.id;
+  let x = parseInt(evt.target.id);
+
 
   // get next spot in column (if none, ignore click)
   const y = findSpotForCol(x);
@@ -109,8 +118,16 @@ function handleClick(evt) {
   placeInTable(y, x);
 
   // check for win
+
+  // get DOM elements for event listeners for win
+  let cell = document.getElementById(`${y}-${x}`);
+  let evtTarget = document.getElementById("column-top");
+
   if (checkForWin()) {
-    return endGame(`Player ${currPlayer} won!`);
+    let winner = currPlayer;
+    evtTarget.removeEventListener('click', handleClick);
+    cell.addEventListener('animationend', () => {
+      return endGame(`Player ${winner} won!`)});
   }
 
   // check for tie
@@ -122,6 +139,7 @@ function handleClick(evt) {
   // switch players
   // TODO: switch currPlayer 1 <-> 2
   currPlayer = currPlayer === 1 ? 2 : 1;
+
 }
 
 /** checkForWin: check board cell-by-cell for "does a win start here?" */
