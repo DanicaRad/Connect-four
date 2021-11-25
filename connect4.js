@@ -23,7 +23,6 @@ function makeBoard(width, height) {
   for(let i = 0; i < HEIGHT; i++) {
     board.push([...rows]);
   }
-  console.log(board);
   // TODO: set "board" to empty HEIGHT x WIDTH matrix array
 }
 
@@ -129,7 +128,6 @@ function handleClick(evt) {
 
 function checkForWin() {
   function _win(cells) {
-    console.log('cells', cells)
     // Check four cells to see if they're all color of current player
     //  - cells: list of four (y, x) cells
     //  - returns true if all are legal coordinates & all match currPlayer
